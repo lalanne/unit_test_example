@@ -1,5 +1,6 @@
 
 #include "Stack.hpp"
+#include "EmptyStackException.hpp"
 
 #include <iostream>
 
@@ -26,3 +27,12 @@ TEST(stack_tests, lifo_behaviour_with_3_elements){
     EXPECT_EQ(1, stack.pop());
     EXPECT_EQ(2, stack.pop());
 }
+
+TEST(stack_tests, pop_of_empty_stack){
+    Stack<int> stack;
+    
+    EXPECT_THROW(stack.pop(), EmptyStackException);
+}
+
+
+

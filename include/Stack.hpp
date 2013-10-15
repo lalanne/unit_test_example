@@ -2,6 +2,8 @@
 #ifndef STACK_83H938HF98WHEF9HF
 #define STACK_83H938HF98WHEF9HF
 
+#include "EmptyStackException.hpp"
+
 #include <list>
 
 template<typename T>
@@ -11,6 +13,7 @@ class Stack{
             stack.push_back(item);
         }
         T pop(){
+            if(!stack.size()) throw EmptyStackException();
             T tmp = stack.back();
             stack.pop_back();
             return tmp;
