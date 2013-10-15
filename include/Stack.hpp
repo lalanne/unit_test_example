@@ -9,6 +9,9 @@
 template<typename T>
 class Stack{
     public:
+        Stack(unsigned int size) : _size(size){}
+        Stack() : _size(100){}
+
         void push(T item){
             stack.push_back(item);
         }
@@ -21,6 +24,7 @@ class Stack{
 
     private:
         std::list<T> stack;
+        const unsigned _size;
 };
 
 #endif //STACK_83H938HF98WHEF9HF

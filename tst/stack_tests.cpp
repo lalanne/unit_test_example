@@ -1,6 +1,7 @@
 
 #include "Stack.hpp"
 #include "EmptyStackException.hpp"
+#include "ExceedsStackSizeException.hpp"
 
 #include <iostream>
 
@@ -33,6 +34,17 @@ TEST(stack_tests, pop_of_empty_stack){
     
     EXPECT_THROW(stack.pop(), EmptyStackException);
 }
+
+TEST(stack_tests, exceeding_stack_limit){
+    Stack<double> stack(3);
+    
+    stack.push(3.4);
+    stack.push(2.4);
+    stack.push(4.4);
+
+    EXPECT_THROW(stack.push(7.8), ExceedsStackSizeException);
+}
+
 
 
 
