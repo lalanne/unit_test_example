@@ -11,7 +11,9 @@ class Stack{
             stack.push_back(item);
         }
         T pop(){
-            return stack.back()
+            T tmp = stack.back();
+            stack.pop_back();
+            return tmp;
         }
 
     private:
@@ -19,5 +21,3 @@ class Stack{
 };
 
 #endif //STACK_83H938HF98WHEF9HF
-
-
