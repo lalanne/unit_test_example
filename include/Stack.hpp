@@ -3,7 +3,7 @@
 #define STACK_83H938HF98WHEF9HF
 
 #include "EmptyStackException.hpp"
-
+#include "ExceedsStackSizeException.hpp"
 #include <list>
 
 template<typename T>
@@ -13,6 +13,8 @@ class Stack{
         Stack() : _size(100){}
 
         void push(T item){
+            if(stack.size()+1>_size) 
+                throw ExceedsStackSizeException();
             stack.push_back(item);
         }
         T pop(){
